@@ -7,7 +7,8 @@
 #  email                  :citext           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  likes_count            :integer          default(0)
-#  private                :boolean
+#  photos_count           :integer          default(0)
+#  private                :boolean          default(TRUE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -45,5 +46,6 @@ class User < ApplicationRecord
   has_many :feed, through: :leaders, source: :own_photos
   has_many :discover, through: :leaders, source: :liked_photos
 
+  validates :username, presence: true, uniqueness: true
 
 end
