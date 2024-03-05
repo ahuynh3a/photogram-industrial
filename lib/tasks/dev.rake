@@ -69,3 +69,5 @@ task sample_data: :environment do
   p "There are now #{Like.count} likes."
   p "There are now #{Comment.count} comments."
 end
+
+
