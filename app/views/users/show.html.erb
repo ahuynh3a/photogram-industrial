@@ -1,12 +1,12 @@
 <h1>
-<%= @user.username %>
+  <%= @user.username %>
 </h1>
 
 <h2> Own photos </h2>
 
 <ul>
-  <% @user.own_photos.each do |photo| %>
- <div class="row mb-4">
+ <% @user.own_photos.each do |photo| %>
+  <div class="row mb-4">
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <%= image_tag photo.image, class: "card-img-top" %>
@@ -15,9 +15,9 @@
           <p class="card-text"><%= photo.caption %></p>
         </div>
         <ul class="list-group list-group-flush">
-         <% photo.comments.each do |comment|%>
-          <li class="list-group-item">
-         <div class="d-flex">
+          <% photo.comments.each do |comment| %>
+            <li class="list-group-item">
+              <div class="d-flex">
                 <div class="flex-shrink-0">
                   <img src="..." alt="...">
                 </div>
@@ -26,12 +26,11 @@
                   <p><%= comment.body %></p>
                 </div>
               </div>
-          </li>
-          <%end%>
+            </li>
+          <% end %>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <%= render "comments/form", comment: photo.comments.build %>
         </div>
       </div>
     </div>
