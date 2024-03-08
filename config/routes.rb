@@ -4,13 +4,16 @@ Rails.application.routes.draw do
  
   
   devise_for :users
-
-  resources :likes
-  resources :follow_requests
+  
   resources :comments
+  resources :follow_requests
+  resources :likes
   resources :photos
 
   get ":username/liked" => "users#liked", as: :liked
+  get ":username/feed" => "users#feed", as: :feed
+
 
   get ":username" => "users#show", as: :user
+
 end
